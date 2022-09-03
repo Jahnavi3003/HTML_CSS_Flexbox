@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Input Form</title>
+    <link rel="stylesheet" href="../css/inputform.css">
+</head>
+<body>
+    <form action="thank_you.html">
+        <header class="headerContainer"><h1>HTML 5 Form Input Fields</h1></header>
+
+        <div>
+            <label for="text">Text input type for name:</label>
+            <input type="text" id="text" name="name" placeholder="Enter Name" required>
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+       
+        <div>
+            <label for="pwd">password input type:</label>
+            <input type="password" id="pwd" name="password" placeholder="Enter Password" required>
+        </div>
+
+        <div>
+            <label for="email">Email input type:</label>
+            <input type="email" id="email" name="email" placeholder="Enter E-mail" required>
+        </div>
+
+        <div>
+            <label for="url">URL input type:</label>
+            <input type="url" id="url" name="url" placeholder="Paste URL" required>
+        </div>
+
+        <div>
+            <label for="num">Number input type: </label>
+            <input type="number" id="num" name="number" placeholder="Enter Number" required>
+        </div>
+
+        <div>
+            <label for="PhoneNum">Phone-Number input type:</label>
+            <input type="ph" id="PhoneNum" name="PhoneNumber" placeholder="Enter Phone Number" required>
+        </div>
+        
+        <div>
+            <label for="search">Search input type:</label>
+            <input type="search" id="search" name="search" placeholder="Search Here" required>
+        </div>
+
+        <div>
+            <label for="dateTime">Choose a date and time:</label>
+            <input type="datetime-local" id="dateTime" name="DateTime">
+        </div>
+
+        <div>
+            <label for="salary">Choose your salary</label>
+            <input type="range" id="salary" name="Salary" min="300000" max="500000" step="1000" value="400000" required>
+            <output class="salary-output" for="salary">400000</output>
+        </div>
+
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+    <script>
+        const text = document.querySelector('#text');
+const textError = document.querySelector('.text-error');
+text.addEventListener('input',function(){
+    let nameRegex = /^[A-Z][A-Z a-z]{3,}$/;
+    if(nameRegex.test(text.value)){
+        textError.textContent = " ";
+    }
+    else{
+        textError.textContent = "Name is invalid.";
+    }
+});
+
+const salary = document.querySelector('#salary');
+const salaryOutput = document.querySelector('.salary-output');
+salaryOutput.textContent = salary.value;
+salary.addEventListener('input',function(){
+    salaryOutput.textContent = salary.value;
+});
+    </script>
+</body>
+</html>
